@@ -17,8 +17,8 @@
         ]
     },
     "extends": [
-        "eslint:recomended",
-        "plugin:@typescript-eslint/eslint-recomended",
-        "plugin:@typescript-eslint/recomended"
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
     ]
 }
