@@ -3,18 +3,9 @@ body {
 	margin: 0;
 	padding: 0;
 
-	font-family:
-		-apple-system,
-		BlinkMacSystemFont,
-		"Segoe UI",
-		Roboto,
-		Oxygen,
-		Ubuntu,
-		Cantarell,
-		"Fira Sans",
-		"Droid Sans",
-		"Helvetica Neue",
-		sans-serif;
+	background: #372F29;
+
+	font-family: Montserrat, sans-serif;
 }
 
 a {
@@ -27,13 +18,11 @@ a {
 	box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-	html {
-		color-scheme: dark;
-	}
-
-	body {
-		color: white;
-		background: black;
-	}
+:root {
+	--white: #FFF;
+	--primary: #D6C2A9;
+	--text-shadow: #D2D2D2;
+	--dark-primary: #D0BCA3;
+	--popap: #E3D2BD;
+	--dark-text: #372F29;
 }
