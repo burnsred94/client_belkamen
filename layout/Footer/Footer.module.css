@@ -1,0 +1,24 @@
+.footer {
+	display: grid;
+	align-items: center;
+
+	padding: 20px 0;
+
+	border-top: 1px solid var(--primary);
+	grid-template-columns: 1fr auto auto;
+	gap: 50px;
+}
+
+.footer span {
+	opacity: 0.6;
+	color: var(--white);
+
+	font-size: 10px;
+}
+
+.footer div {
+	display: grid;
+	gap: 20px;
+
+	align-items: center;
+}

@@ -1,6 +1,6 @@
 import { Button } from "../components/Button/Button";
 import { Htag } from "../components/Htag/Htag";
-import { Layout, withLayout } from "../layout/Layout";
+import { withLayout } from "../layout/Layout";
 
 
 function Home(): JSX.Element {
