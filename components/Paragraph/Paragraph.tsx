@@ -15,4 +15,4 @@ export const Paragraph = ({ type, color, children, className, ...props}: Paragra
             {children}
         </p>
     );
-}
+};

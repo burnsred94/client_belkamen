@@ -1,8 +1,30 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+// eslint-disable-next-line no-undef
+module.exports = {
   reactStrictMode: true,
   swcMinify: true,
-};
 
-// eslint-disable-next-line no-undef
-module.exports = nextConfig;
+  webpack(config, options) {
+    config.module.rules.push({
+        loader: '@svgr/webpack',
+        issuer: /\.[jt]sx?$/,
+        options: {
+          prettier: false,
+          svgo: true,
+          svgoConfig: {
+              plugins: [{
+                  name: 'presset-default',
+                  params: {
+                      override: {
+                          removeViewBox: false
+                    }
+                  }
+              }]
+          },
+          titleProp: true,
+        },
+        test: /\.svg$/,
+    });
+    return config;
+  }
+};
