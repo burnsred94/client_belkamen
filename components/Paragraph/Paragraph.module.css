@@ -1,0 +1,37 @@
+.paragraph {
+	margin: 0;
+
+	color: var(--white);
+}
+
+.xsmall {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.small {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 22px;
+}
+
+.medium {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.large {
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 29px;
+}
+
+.black {
+	color: black;
+}
+
+.primary {
+	color: var(--primary);
+}
