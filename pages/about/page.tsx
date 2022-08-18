@@ -3,13 +3,13 @@ import { withLayout } from "../../layout/Layout";
 import axios from 'axios'; 
 import { AboutPage } from "../../interfaces/about.interfaces";
 import { GetStaticProps } from "next";
-import styles from './about.module.css';
-import cn from 'classnames'
 import { Htag } from "../../components";
 import MonIcon from "./img/mon.svg";
 import FoundIcon from "./img/found.svg";
 import FancesIcon from "./img/fances.svg";
 import BlagIcon from "./img/blag.svg";
+import styles from './about.module.css';
+import cn from 'classnames';
 
 
 
@@ -46,15 +46,13 @@ function About({ about }: AboutProps): JSX.Element {
                 {data.subDescription && <div className={styles.subDescription_text} dangerouslySetInnerHTML={{__html: data.subDescription}}/>}
             </div>
         </div>
-    )
-    
+    );
 }
 
 export default withLayout(About);
 
 export const getStaticProps: GetStaticProps<AboutProps> = async () => {
   const { data: about } = await axios.get<AboutPage[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/about/page');
-  console.log();
   return {
         props:{ 
             about
