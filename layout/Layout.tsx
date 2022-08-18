@@ -7,7 +7,7 @@ import cn from 'classnames';
 export const Layout = ({children}: LayoutProps): JSX.Element => {
     return( 
     <div className={styles.wrapper}>
-        <Header className={styles.header}/>
+        <Header className={styles.header} menu={[]}/>
             <div className={styles.body}>
                 {children}
             </div>

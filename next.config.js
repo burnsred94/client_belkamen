@@ -13,7 +13,7 @@ module.exports = {
           svgo: true,
           svgoConfig: {
               plugins: [{
-                  name: 'presset-default',
+                  name: 'preset-default',
                   params: {
                       override: {
                           removeViewBox: false

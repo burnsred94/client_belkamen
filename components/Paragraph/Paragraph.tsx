@@ -1,6 +1,6 @@
 import { ParagraphProps } from "./Paragraph.props";
 import cn from 'classnames';
-import styles from 'Paragraph.module.css';
+import styles from './Paragraph.module.css';
 
 export const Paragraph = ({ type, color, children, className, ...props}: ParagraphProps): JSX.Element => {
     return (
