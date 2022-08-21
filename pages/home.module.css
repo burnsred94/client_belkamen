@@ -9,7 +9,10 @@
 		"button ."
 		"specificWorks specificWorks"
 		"individual individual"
-		"cards cards";
+		"cards cards"
+		"advatages advatages"
+		"gallery gallery"
+		"map map";
 }
 
 .home h1 {
@@ -35,7 +38,7 @@
 	grid-area: button;
 }
 
-.specifics_work {
+.specificswork {
 	display: inline-flex;
 	justify-content: space-between;
 
@@ -46,13 +49,13 @@
 	grid-area: specificWorks;
 }
 
-.specifics_work > li {
+.specificswork > li {
 	width: 240px;
 
 	color: #D2D2D2;
 }
 
-.specifics_work li::before {
+.specificswork li::before {
 	position: relative;
 	top: 0;
 	left: 0;
@@ -65,7 +68,7 @@
 	content: "❏";
 }
 
-.individual_plan_work {
+.individualplanwork {
 	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
@@ -77,12 +80,12 @@
 	grid-area: individual;
 }
 
-.individual_plan_work li {
+.individualplanwork li {
 	display: inline-flex;
 	align-items: center;
 }
 
-.individual_plan_work li > span {
+.individualplanwork li > span {
 	padding-left: 15px;
 
 	color: #D2D2D2;
@@ -123,14 +126,14 @@
 	line-height: 34px;
 }
 
-.price {
+.pricee {
 	color: var(--white);
 
 	font-size: 42px;
 	line-height: 50px;
 }
 
-.price > span {
+.pricee > span {
 	margin: 0 10px 0 35px;
 
 	color: #C1AF99;
@@ -151,8 +154,9 @@
 	box-shadow: -4px -3px 19px 25px rgb(3 3 3 / 30%);
 }
 
-.card_free_description li {
+.cardfreedescription li {
 	margin-bottom: 10px;
+	margin-left: 15px;
 
 	list-style: circle;
 
@@ -168,8 +172,9 @@
 	line-height: 24px;
 }
 
-.card_description li {
+.carddescription li {
 	margin-bottom: 10px;
+	margin-left: 15px;
 
 	list-style: circle;
 
@@ -184,4 +189,151 @@
 	width: 280px;
 	margin-bottom: 0;
 	margin-left: 0;
+}
+
+.advatages {
+	display: grid;
+
+	background-color: var(--dark-secondary);
+	grid-area: advatages;
+	justify-items: center;
+}
+
+.advatages > h2 {
+	margin-top: 200px;
+	margin-bottom: 40px;
+
+	text-align: center;
+}
+
+.advatages > span {
+	max-width: 920px;
+	margin-bottom: 100px;
+
+	color: var(--white);
+
+	font-size: 24px;
+	line-height: 29px;
+}
+
+.advatages > span::before {
+	position: relative;
+	top: 60px;
+	left: -55px;
+
+	display: block;
+
+	width: 2px;
+	height: 68px;
+
+	content: "";
+
+	background-color: #BAAA95;
+}
+
+.advatages > div {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+
+.advatageslist {
+	display: grid;
+
+	list-style: none;
+
+	color: #D6C2A9;
+
+	font-size: 20px;
+	line-height: 24px;
+	grid-template-columns: 1fr 1fr;
+	row-gap: 80px;
+	column-gap: 300px;
+}
+
+.advatageslist li {
+	max-width: 400px;
+}
+
+.advatageslist li::before {
+	position: relative;
+	top: 50px;
+	left: -80px;
+
+	display: block;
+
+	width: 50px;
+	height: 50px;
+
+	content: " ";
+
+	color: var(--white);
+	border: 2px solid #D6C2A9;
+	border-radius: 50%;
+}
+
+.advatageslist li::after {
+	position: relative;
+	top: -85px;
+	left: -60px;
+
+	display: block;
+
+	width: 10px;
+	height: 10px;
+
+	content: "✔";
+}
+
+.advatageslist > li:nth-child(4)::after {
+	position: relative;
+	top: -107px;
+	left: -60px;
+
+	display: block;
+
+	width: 10px;
+	height: 10px;
+
+	content: "✔";
+}
+
+.carousel {
+	display: flex;
+	align-content: center;
+	flex-direction: column;
+
+	height: 800px;
+	padding-top: 250px;
+
+	text-align: center;
+
+	background-color: var(--dark-secondary);
+	grid-area: gallery;
+}
+
+.carousel > h2 {
+	margin-bottom: 90px;
+}
+
+.map {
+	display: flex;
+	flex-direction: column;
+
+	background-color: var(--dark-secondary);
+	grid-area: map;
+}
+
+.map > h2 {
+	margin: 200px 0 60px;
+
+	text-align: center;
+}
+
+.map_block {
+	display: flex;
+	justify-content: center;
+
+	max-width: 100%;
+	padding-bottom: 100px;
 }
