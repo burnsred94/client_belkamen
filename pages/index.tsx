@@ -1,6 +1,6 @@
 import { withLayout } from "../layout/Layout";
 import { Card, MainPage } from "../interfaces/main.interfaces";
-import { Button, Htag, Carousel } from "../components";
+import { Button, Htag, Carousel, Input } from "../components";
 import BuildIcon from "./img/build.svg";
 import RasroIcon from "./img/rasro.svg";
 import GarantIcon from "./img/garant.svg";
@@ -8,6 +8,7 @@ import axios from 'axios';
 import cn from 'classnames';
 import styles from './home.module.css';
 import { MapY } from "../components/Maps/MapY";
+import { Form } from "../components/Form/Form";
 
 
 function Home({ main }: HomeProps): JSX.Element {
@@ -56,12 +57,20 @@ function Home({ main }: HomeProps): JSX.Element {
         <span>{data.advatages['subTitle']}</span>
         <ul className={styles.advatageslist}>
           {data.advatages['description'].map((d: string) => (
-            <li><span></span>{d}</li>))}
+            <li>{d}</li>))}
         </ul>
       </div>
       <div className={styles.carousel}>
         <Htag tag='h2'>Галерея работ</Htag>
         <Carousel>{data.gallery}</Carousel>
+      </div>
+      <div className={styles.form}>
+          <div className={styles.formText}>
+            <span>Не знаете, что делать?</span>
+            <Htag tag='h2'>Мы проконсультируем вас по всем вопросам</Htag>
+            <span>Оставьте свои контактные данные, наш специалист свяжется с вами и ответит на все ваши вопросы!</span>
+          </div>
+            <Form/>
       </div>
       <div className={styles.map}>
         <Htag tag='h2'>Наши контакты</Htag>

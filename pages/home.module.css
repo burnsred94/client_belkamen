@@ -12,6 +12,7 @@
 		"cards cards"
 		"advatages advatages"
 		"gallery gallery"
+		"form form"
 		"map map";
 }
 
@@ -314,6 +315,44 @@
 
 .carousel > h2 {
 	margin-bottom: 90px;
+}
+
+.form {
+	display: grid;
+	align-items: center;
+
+	padding: 100px 40px;
+
+	background: var(--dark-secondary);
+	grid-area: form;
+	gap: 100px;
+	grid-template-columns: auto auto;
+}
+
+.formText {
+	display: grid;
+	row-gap: 40px;
+
+	max-width: 633px;
+	padding-left: 60px;
+
+	border-left: 2px solid #C1AF99;
+}
+
+.formText > span {
+	color: var(--primary);
+
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.formText > span:last-child {
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.formText > h2 {
+	color: white;
 }
 
 .map {

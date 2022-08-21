@@ -1,0 +1,70 @@
+.input {
+	width: 100%;
+	padding: 10px;
+
+	color: var(--dark-secondary);
+	border: none;
+	border-bottom: 2px solid #FFF;
+	outline: none;
+	background: var(--primary);
+
+	font-family: var(--font-family);
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.input::placeholder {
+	opacity: 0.4;
+}
+
+.checkbox_wrapper label {
+	display: flex;
+	align-items: center;
+}
+
+.checkbox_wrapper input[type="checkbox"] {
+	/* creating a custom design */
+	width: 1.6em;
+	height: 1.6em;
+	margin-right: 0.5em;
+
+	cursor: pointer;
+
+	border: 2.5px solid #E9DCCD;
+	border-radius: 0.15em;
+	outline: none;
+
+	/* removing default appearance */
+	appearance: none;
+	appearance: none;
+}
+
+input.checked {
+	position: relative;
+}
+
+input.checked::before {
+	position: absolute;
+	top: 2.15px;
+	right: 2.5px;
+
+	width: 11px;
+	height: 11px;
+
+	content: " ";
+
+	background-color: var(--dark-secondary);
+}
+
+.checkbox_wrapper input[type="checkbox"]:disabled {
+	opacity: 0.5;
+	border-color: #E9DCCD;
+}
+
+.checkbox_wrapper input[type="checkbox"]:disabled + span {
+	opacity: 0.5;
+}
+
+.checkbox_wrapper input[type="checkbox"]:focus {
+	box-shadow: 0 0 20px var(--dark-secondary);
+}

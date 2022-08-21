@@ -6,23 +6,23 @@ import { motion } from "framer-motion";
 
 
 
-export const Carousel = ({children, className, ...props} : CarouselProps): JSX.Element => {
+export const Carousel = ({ children, className, ...props }: CarouselProps): JSX.Element => {
     const [width, setWidth] = useState(0);
     const carousel = useRef();
 
     useEffect(() => {
-        if(carousel.current) {
+        if (carousel.current) {
             setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
         }
     }, []);
-  
-    return(
+
+    return (
         <motion.div ref={carousel} className={styles.carousel}>
-            <motion.div 
-                drag='x' 
-                dragConstraints={{ right: 0, left: -width }} 
+            <motion.div
+                drag='x'
+                dragConstraints={{ right: 0, left: -width }}
                 className={styles.inner_carousel}
-                >
+            >
                 {children['image'].map((image: string) => {
                     return (
                         <motion.div className={styles.item} key={image}>
@@ -30,9 +30,9 @@ export const Carousel = ({children, className, ...props} : CarouselProps): JSX.E
                         </motion.div>
                     );
                 })}
+            </motion.div>
         </motion.div>
-        </motion.div>
-      );
+    );
 };
 
 
