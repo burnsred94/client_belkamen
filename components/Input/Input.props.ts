@@ -1,8 +1,11 @@
-import { DetailedHTMLProps, HTMLAttributes} from "react";
+import { AllHTMLAttributes, DetailedHTMLProps } from "react";
+import { FieldError } from "react-hook-form";
 
 
-export interface InputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-    type: "text" | "checkbox";
+export interface InputProps extends DetailedHTMLProps<AllHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+    typeInput: "text" | "checkbox";
+    isChecked?: boolean;
     label?: string;
     checked?: boolean;
+    error?: FieldError
 }

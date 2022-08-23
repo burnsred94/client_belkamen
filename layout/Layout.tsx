@@ -2,7 +2,6 @@ import { LayoutProps } from "./Layout.props";
 import { Footer, Header } from '../layout';
 import { FunctionComponent } from "react";
 import styles from "./Layout.module.css";
-import cn from 'classnames';
 
 export const Layout = ({children}: LayoutProps): JSX.Element => {
     return( 

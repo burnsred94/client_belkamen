@@ -1,0 +1,23 @@
+.modal > div {
+	position: absolute;
+	top: 50px;
+	right: 50px;
+
+	padding: 10px 80px;
+}
+
+.modal {
+	position: relative;
+}
+
+.activeNon {
+	display: none;
+}
+
+.button {
+	position: absolute;
+	left: 0;
+
+	width: 10px;
+	height: 10px;
+}

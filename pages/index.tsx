@@ -9,30 +9,37 @@ import cn from 'classnames';
 import styles from './home.module.css';
 import { MapY } from "../components/Maps/MapY";
 import { Form } from "../components/Form/Form";
+import { useState } from "react";
+import { Modal } from "../components/Modal/Modal";
 
 
 function Home({ main }: HomeProps): JSX.Element {
+  const [active, setActive] = useState(false);
+  
   const data = main[0];
   return (
     <div className={cn(styles.home)}>
+      <Modal className={styles.modal} active={active}>
+        <Form buttonClose={true} onClick={()=> setActive(false)}/>
+      </Modal>
       <Htag tag="h1">{data.title}</Htag>
       <span>{data.description}</span>
-      <Button apperance="primary">Заказать консультацию</Button>
+      <Button apperance="primary" onClick={() => setActive(true)}>Заказать консультацию</Button>
       <ul className={cn(styles.specificswork)}>
         {data.specificsWork.map((e: string) => (<li key={e}>{e}</li>))}
       </ul>
       <ul className={cn(styles.individualplanwork)}>
         <li>
           <RasroIcon />
-          <span>{data.titleIndividualPlanWork[0]}</span>
+          <span key={data.titleIndividualPlanWork.index}>{data.titleIndividualPlanWork[0]}</span>
         </li>
         <li>
           <GarantIcon />
-          <span>{data.titleIndividualPlanWork[1]}</span>
+          <span key={data.titleIndividualPlanWork.index}>{data.titleIndividualPlanWork[1]}</span>
         </li>
         <li>
           <BuildIcon />
-          <span>{data.titleIndividualPlanWork[2]}</span>
+          <span key={data.titleIndividualPlanWork.index}>{data.titleIndividualPlanWork[2]}</span>
         </li>
       </ul>
       <div className={cn(styles.cards)}>
@@ -65,12 +72,12 @@ function Home({ main }: HomeProps): JSX.Element {
         <Carousel>{data.gallery}</Carousel>
       </div>
       <div className={styles.form}>
-          <div className={styles.formText}>
-            <span>Не знаете, что делать?</span>
-            <Htag tag='h2'>Мы проконсультируем вас по всем вопросам</Htag>
-            <span>Оставьте свои контактные данные, наш специалист свяжется с вами и ответит на все ваши вопросы!</span>
-          </div>
-            <Form/>
+        <div className={styles.formText}>
+          <span>Не знаете, что делать?</span>
+          <Htag tag='h2'>Мы проконсультируем вас по всем вопросам</Htag>
+          <span>Оставьте свои контактные данные, наш специалист свяжется с вами и ответит на все ваши вопросы!</span>
+        </div>
+        <Form />
       </div>
       <div className={styles.map}>
         <Htag tag='h2'>Наши контакты</Htag>

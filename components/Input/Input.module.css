@@ -36,7 +36,6 @@
 
 	/* removing default appearance */
 	appearance: none;
-	appearance: none;
 }
 
 input.checked {
@@ -67,4 +66,21 @@ input.checked::before {
 
 .checkbox_wrapper input[type="checkbox"]:focus {
 	box-shadow: 0 0 20px var(--dark-secondary);
+}
+
+.inputWrapper {
+	position: relative;
+}
+
+.error {
+	border: 2px solid red;
+	border-radius: 10px;
+}
+
+.errorMessage {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+
+	color: red;
 }
