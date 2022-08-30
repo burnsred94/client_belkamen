@@ -1,7 +1,6 @@
 .about {
 	display: grid;
 
-	background-color: #BAAA95;
 	grid-template-columns: 1fr 1fr;
 	grid-template-areas:
 		"title title"
@@ -13,7 +12,7 @@
 .about h2 {
 	margin: 50px 80px;
 
-	color: #372F29;
+	color: var(--primary);
 	grid-area: title;
 }
 
@@ -31,7 +30,7 @@
 
 	margin: 0 60px;
 
-	color: #372F29;
+	color: var(--primary);
 
 	font-size: 18px;
 	line-height: 22px;
@@ -53,7 +52,7 @@
 }
 
 .services > span {
-	color: #372F29;
+	color: var(--primary);
 
 	font-size: 24px;
 	font-weight: 400;
@@ -72,6 +71,8 @@
 	padding-left: 15px;
 
 	text-align: center;
+
+	color: var(--primary);
 
 	font-size: 18px;
 	line-height: 22px;
@@ -103,8 +104,8 @@
 
 	text-align: end;
 
-	color: #372F29;
-	border-bottom: 2px solid #372F29;
+	color: var(--primary);
+	border-bottom: 2px solid var(--primary);
 
 	font-size: 24px;
 	font-weight: 400;
@@ -113,6 +114,8 @@
 
 .subDescription_text {
 	margin: 50px 140px;
+
+	color: var(--primary);
 }
 
 .subDescription_text span {

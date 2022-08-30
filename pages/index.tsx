@@ -1,26 +1,32 @@
+import { createRef, useRef, useState } from "react";
 import { withLayout } from "../layout/Layout";
 import { Card, MainPage } from "../interfaces/main.interfaces";
-import { Button, Htag, Carousel, Input } from "../components";
+import { MenuItem } from "../interfaces/catalog.interface";
+import { Button, Htag, Carousel, CatalogMenu, Modal, Form, MapY } from "../components";
 import BuildIcon from "./img/build.svg";
 import RasroIcon from "./img/rasro.svg";
 import GarantIcon from "./img/garant.svg";
 import axios from 'axios';
 import cn from 'classnames';
 import styles from './home.module.css';
-import { MapY } from "../components/Maps/MapY";
-import { Form } from "../components/Form/Form";
-import { useState } from "react";
-import { Modal } from "../components/Modal/Modal";
 
 
-function Home({ main }: HomeProps): JSX.Element {
+
+function Home({ main, menu }: HomeProps): JSX.Element {
   const [active, setActive] = useState(false);
   
+
+  const moveToFeedback = () => {
+    setTimeout(() => {
+      window.scrollTo(0, 4000);
+    }, 1000);
+  };
+
   const data = main[0];
   return (
     <div className={cn(styles.home)}>
       <Modal className={styles.modal} active={active}>
-        <Form buttonClose={true} onClick={()=> setActive(false)}/>
+        <Form />
       </Modal>
       <Htag tag="h1">{data.title}</Htag>
       <span>{data.description}</span>
@@ -29,19 +35,22 @@ function Home({ main }: HomeProps): JSX.Element {
         {data.specificsWork.map((e: string) => (<li key={e}>{e}</li>))}
       </ul>
       <ul className={cn(styles.individualplanwork)}>
-        <li>
+        <li key={data.titleIndividualPlanWork.index}>
           <RasroIcon />
-          <span key={data.titleIndividualPlanWork.index}>{data.titleIndividualPlanWork[0]}</span>
+          <span>{data.titleIndividualPlanWork[0]}</span>
         </li>
-        <li>
+        <li key={data.titleIndividualPlanWork.index}>
           <GarantIcon />
-          <span key={data.titleIndividualPlanWork.index}>{data.titleIndividualPlanWork[1]}</span>
+          <span>{data.titleIndividualPlanWork[1]}</span>
         </li>
-        <li>
+        <li key={data.titleIndividualPlanWork.index}>
           <BuildIcon />
-          <span key={data.titleIndividualPlanWork.index}>{data.titleIndividualPlanWork[2]}</span>
+          <span>{data.titleIndividualPlanWork[2]}</span>
         </li>
       </ul>
+      <div className={styles.catalog}>
+        <CatalogMenu type="main" menu={menu} />
+      </div>
       <div className={cn(styles.cards)}>
         <Htag tag="h2">Выберите индивидуальный план работы</Htag>
         <div>
@@ -54,7 +63,7 @@ function Home({ main }: HomeProps): JSX.Element {
             <span>Бесплатно:</span>
             <ul className={cn(styles.cardfreedescription)}>
               {card.freeDescription.map((d: string) => (<li>{d}</li>))}
-              <Button apperance="primary">Заказать Пакет</Button>
+              <Button onClick={()=> moveToFeedback()} apperance="primary">Заказать Пакет</Button>
             </ul>
           </div>))}
         </div>
@@ -93,9 +102,11 @@ export default withLayout(Home);
 
 export const getStaticProps = async () => {
   const { data: main } = await axios.get<MainPage>(process.env.NEXT_PUBLIC_DOMAIN + '/api/main');
+  const { data: menu } = await axios.get<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/catalog/categories');
   return {
     props: {
       main,
+      menu
     }
   };
 };
@@ -103,4 +114,5 @@ export const getStaticProps = async () => {
 
 export interface HomeProps extends Record<string, unknown> {
   props: MainPage
+  menu: MenuItem[]
 }

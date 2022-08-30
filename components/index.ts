@@ -3,3 +3,8 @@ export * from "./Button/Button";
 export * from "./Paragraph/Paragraph";
 export * from "./Gallery/Carousel";
 export * from "./Input/Input";
+export * from "./Modal/Modal";
+export * from "./Form/Form";
+export * from "./Gallery/Carousel";
+export * from "./CatalogMenu/Catalog";
+export * from "./Maps/MapY";

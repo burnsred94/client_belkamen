@@ -10,10 +10,6 @@
 	grid-template-columns: 250px 1fr 250px;
 }
 
-.background_state {
-	/* background: url(./background.png) top center no-repeat; */
-}
-
 .header img {
 	margin: 15px 70px;
 }

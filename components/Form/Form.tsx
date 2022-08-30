@@ -10,7 +10,7 @@ import styles from "./Form.module.css";
 import axios from "axios";
 
 
-export const Form = ({ className, buttonClose = false, ...props }: FormProps): JSX.Element => {
+export const Form = ({ className, ...props }: FormProps): JSX.Element => {
     const { register, control, handleSubmit, formState, setValue } = useForm<IFormInterface>();
 
     const onSubmit = (data: IFormInterface, e: React.ChangeEvent) => {
@@ -30,9 +30,6 @@ export const Form = ({ className, buttonClose = false, ...props }: FormProps): J
 
     return (
         <div className={cn(styles.container, className)} {...props}>
-            <button className={cn(styles.button, {
-                [styles.buttonActive]: buttonClose
-            })}></button>
             <Htag tag="h3">ЗАПОЛНИТЕ ФОРМУ</Htag>
             <span>чтобы оставить заявку на бесплатную консультацию</span>
             <form onSubmit={handleSubmit(onSubmit)}>

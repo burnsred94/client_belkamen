@@ -9,6 +9,7 @@
 		"button ."
 		"specificWorks specificWorks"
 		"individual individual"
+		"catalog catalog"
 		"cards cards"
 		"advatages advatages"
 		"gallery gallery"
@@ -32,7 +33,7 @@
 	grid-area: subTitle;
 }
 
-.home button {
+.home > button {
 	width: 400px;
 	margin-bottom: 100px;
 	margin-left: 80px;
@@ -90,6 +91,14 @@
 	padding-left: 15px;
 
 	color: #D2D2D2;
+}
+
+.catalog {
+	padding: 100px 0;
+
+	background-color: var(--dark-secondary);
+	grid-area: catalog;
+	justify-items: center;
 }
 
 .cards {
@@ -304,7 +313,6 @@
 	align-content: center;
 	flex-direction: column;
 
-	height: 800px;
 	padding-top: 250px;
 
 	text-align: center;

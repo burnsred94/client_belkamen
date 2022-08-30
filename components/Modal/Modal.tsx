@@ -8,7 +8,7 @@ export const Modal = ({active, children, className, ...props}: ModalProps): JSX.
         <div className={cn({
             [styles.modal]: active,
             [styles.activeNon]: !active
-        }) }>
+        })} {...props}>
             {children}
         </div>
     );

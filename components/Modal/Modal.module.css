@@ -13,11 +13,3 @@
 .activeNon {
 	display: none;
 }
-
-.button {
-	position: absolute;
-	left: 0;
-
-	width: 10px;
-	height: 10px;
-}
