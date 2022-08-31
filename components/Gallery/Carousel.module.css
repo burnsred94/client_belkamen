@@ -1,10 +1,10 @@
 .container {
 	display: grid;
-	grid-template-areas: 
-	"content"
-	"button";
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
+	grid-template-areas:
+		"content"
+		"button";
 }
 
 .item {
@@ -29,14 +29,15 @@
 .carousel {
 	overflow: hidden;
 	grid-area: content;
+
 	cursor: grab;
 }
-
 
 .buttonBlock {
 	display: flex;
 	justify-content: space-around;
 	grid-area: button;
+
 	margin: 20px;
 }
 

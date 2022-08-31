@@ -384,3 +384,68 @@
 	max-width: 100%;
 	padding-bottom: 100px;
 }
+
+@media screen and (max-width: 768px) {
+	.home {
+		background: none;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"title"
+			"subTitle"
+			"advatages"
+			"form"
+			"map";
+	}
+
+	.home h1 {
+		justify-content: center;
+
+		margin: 100px;
+	}
+
+	.home > span {
+		margin: 0 100px;
+	}
+
+	.home > button {
+		display: none;
+	}
+
+	.specificswork {
+		display: none;
+	}
+
+	.individualplanwork {
+		display: none;
+	}
+
+	.catalog {
+		display: none;
+	}
+
+	.cards {
+		display: none;
+	}
+
+	.price {
+		display: none;
+	}
+
+	.carousel {
+		display: none;
+	}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.form > div:nth-child(2) {
+		width: 100%;
+	}
+
+	.map {
+		margin: 0 100px;
+	}
+}

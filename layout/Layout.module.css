@@ -21,3 +21,22 @@
 .footer {
 	grid-area: footer;
 }
+
+@media screen and (max-width: 768px) {
+	.wrapper {
+		max-width: 100%;
+		grid-template-columns: minmax(320px, 768px);
+		grid-template-areas:
+			"header"
+			"body"
+			"footer";
+	}
+
+	.header {
+		display: none;
+	}
+
+	.footer {
+		display: none;
+	}
+}
