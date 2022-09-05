@@ -1,0 +1,451 @@
+.home {
+	display: grid;
+
+	background-image: url("./img/background.png");
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+		"title ."
+		"subTitle ."
+		"button ."
+		"specificWorks specificWorks"
+		"individual individual"
+		"catalog catalog"
+		"cards cards"
+		"advatages advatages"
+		"gallery gallery"
+		"form form"
+		"map map";
+}
+
+.home h1 {
+	grid-area: title;
+
+	margin: 130px 0 35px 80px;
+}
+
+.home > span {
+	margin: 0 0 80px 80px;
+
+	color: #D2D2D2;
+
+	font-size: 20px;
+	line-height: 25px;
+	grid-area: subTitle;
+}
+
+.home > button {
+	width: 400px;
+	margin-bottom: 100px;
+	margin-left: 80px;
+	grid-area: button;
+}
+
+.specificswork {
+	display: inline-flex;
+	justify-content: space-between;
+
+	margin: 0 80px 230px;
+	padding: 0;
+
+	list-style: none;
+	grid-area: specificWorks;
+}
+
+.specificswork > li {
+	width: 240px;
+
+	color: #D2D2D2;
+}
+
+.specificswork li::before {
+	position: relative;
+	top: 0;
+	left: 0;
+
+	width: 14px;
+	width: 20px;
+	height: 14px;
+	padding-right: 5px;
+
+	content: "❏";
+}
+
+.individualplanwork {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+
+	margin: 0 80px 60px;
+	padding: 0;
+
+	list-style: none;
+	grid-area: individual;
+}
+
+.individualplanwork li {
+	display: inline-flex;
+	align-items: center;
+}
+
+.individualplanwork li > span {
+	padding-left: 15px;
+
+	color: #D2D2D2;
+}
+
+.catalog {
+	padding: 100px 0;
+
+	background-color: var(--dark-secondary);
+	grid-area: catalog;
+	justify-items: center;
+}
+
+.cards {
+	display: grid;
+
+	padding-top: 200px;
+
+	background-color: var(--dark-secondary);
+	grid-area: cards;
+	grid-template-rows: 70px 1fr;
+}
+
+.cards > h2 {
+	height: 50px;
+
+	text-align: center;
+}
+
+.cards > div {
+	display: grid;
+
+	margin-top: 90px;
+	gap: 50px;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-items: center;
+}
+
+.card > span:nth-child(1) {
+	margin: 25px 35px;
+
+	color: #C1AF99;
+
+	font-size: 28px;
+	font-weight: 400;
+	line-height: 34px;
+}
+
+.pricee {
+	color: var(--white);
+
+	font-size: 42px;
+	line-height: 50px;
+}
+
+.pricee > span {
+	margin: 0 10px 0 35px;
+
+	color: #C1AF99;
+
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.card {
+	display: grid;
+
+	width: 340px;
+	margin-bottom: 100px;
+
+	border: 3px solid #C1AF99;
+	border-radius: 10px;
+	/* stylelint-disable-next-line CssSyntaxError */
+	box-shadow: -4px -3px 19px 25px rgb(3 3 3 / 30%);
+}
+
+.cardfreedescription li {
+	margin-bottom: 10px;
+	margin-left: 15px;
+
+	list-style: circle;
+
+	color: var(--white);
+}
+
+.card > span:nth-child(4) {
+	margin: 0 0 10px 60px;
+
+	color: #C1AF99;
+
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.carddescription li {
+	margin-bottom: 10px;
+	margin-left: 15px;
+
+	list-style: circle;
+
+	color: var(--white);
+}
+
+.card button {
+	position: relative;
+	bottom: -55px;
+	left: -10px;
+
+	width: 280px;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+
+.advatages {
+	display: grid;
+
+	background-color: var(--dark-secondary);
+	grid-area: advatages;
+	justify-items: center;
+}
+
+.advatages > h2 {
+	margin-top: 200px;
+	margin-bottom: 40px;
+
+	text-align: center;
+}
+
+.advatages > span {
+	max-width: 920px;
+	margin-bottom: 100px;
+
+	color: var(--white);
+
+	font-size: 24px;
+	line-height: 29px;
+}
+
+.advatages > span::before {
+	position: relative;
+	top: 60px;
+	left: -55px;
+
+	display: block;
+
+	width: 2px;
+	height: 68px;
+
+	content: "";
+
+	background-color: #BAAA95;
+}
+
+.advatages > div {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+
+.advatageslist {
+	display: grid;
+
+	list-style: none;
+
+	color: #D6C2A9;
+
+	font-size: 20px;
+	line-height: 24px;
+	grid-template-columns: 1fr 1fr;
+	row-gap: 80px;
+	column-gap: 300px;
+}
+
+.advatageslist li {
+	max-width: 400px;
+}
+
+.advatageslist li::before {
+	position: relative;
+	top: 50px;
+	left: -80px;
+
+	display: block;
+
+	width: 50px;
+	height: 50px;
+
+	content: " ";
+
+	color: var(--white);
+	border: 2px solid #D6C2A9;
+	border-radius: 50%;
+}
+
+.advatageslist li::after {
+	position: relative;
+	top: -85px;
+	left: -60px;
+
+	display: block;
+
+	width: 10px;
+	height: 10px;
+
+	content: "✔";
+}
+
+.advatageslist > li:nth-child(4)::after {
+	position: relative;
+	top: -107px;
+	left: -60px;
+
+	display: block;
+
+	width: 10px;
+	height: 10px;
+
+	content: "✔";
+}
+
+.carousel {
+	display: flex;
+	align-content: center;
+	flex-direction: column;
+
+	padding-top: 250px;
+
+	text-align: center;
+
+	background-color: var(--dark-secondary);
+	grid-area: gallery;
+}
+
+.carousel > h2 {
+	margin-bottom: 90px;
+}
+
+.form {
+	display: grid;
+	align-items: center;
+
+	padding: 100px 40px;
+
+	background: var(--dark-secondary);
+	grid-area: form;
+	gap: 100px;
+	grid-template-columns: auto auto;
+}
+
+.formText {
+	display: grid;
+	row-gap: 40px;
+
+	max-width: 633px;
+	padding-left: 60px;
+
+	border-left: 2px solid #C1AF99;
+}
+
+.formText > span {
+	color: var(--primary);
+
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.formText > span:last-child {
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.formText > h2 {
+	color: white;
+}
+
+.map {
+	display: flex;
+	flex-direction: column;
+
+	background-color: var(--dark-secondary);
+	grid-area: map;
+}
+
+.map > h2 {
+	margin: 200px 0 60px;
+
+	text-align: center;
+}
+
+.map_block {
+	display: flex;
+	justify-content: center;
+
+	max-width: 100%;
+	padding-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+	.home {
+		background: none;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"title"
+			"subTitle"
+			"advatages"
+			"form"
+			"map";
+	}
+
+	.home h1 {
+		justify-content: center;
+
+		margin: 100px;
+	}
+
+	.home > span {
+		margin: 0 100px;
+	}
+
+	.home > button {
+		display: none;
+	}
+
+	.specificswork {
+		display: none;
+	}
+
+	.individualplanwork {
+		display: none;
+	}
+
+	.catalog {
+		display: none;
+	}
+
+	.cards {
+		display: none;
+	}
+
+	.price {
+		display: none;
+	}
+
+	.carousel {
+		display: none;
+	}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.form > div:nth-child(2) {
+		width: 100%;
+	}
+
+	.map {
+		margin: 0 100px;
+	}
+}

@@ -1,0 +1,53 @@
+.container {
+	display: grid;
+	grid-template-areas:
+		"title ."
+		"content map";
+}
+
+.container > h2 {
+	grid-area: title;
+
+	margin: 20px 40px;
+}
+
+.container > ul {
+	display: flex;
+	flex-direction: column;
+
+	max-width: 400px;
+	max-height: 500px;
+	margin-top: 40px;
+	margin-left: 40px;
+
+	list-style: none;
+
+	background-color: #433932;
+	box-shadow: -4px -3px 19px 25px rgb(3 3 3 / 30%);
+	grid-area: content;
+}
+
+.container ul > li {
+	display: flex;
+	flex-direction: column;
+
+	margin: 30px 0;
+
+	color: var(--primary);
+}
+
+.item {
+	display: inline-block;
+
+	margin-top: 5px;
+}
+
+.map {
+	grid-area: map;
+
+	display: flex;
+
+	max-width: 900px;
+	height: 600px;
+	margin: 40px 0 100px 114px;
+}

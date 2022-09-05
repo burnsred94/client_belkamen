@@ -1,0 +1,49 @@
+.container {
+	display: grid;
+	grid-template-areas:
+		"catalog"
+		"review";
+}
+
+.catalog {
+	grid-area: catalog;
+}
+
+.review {
+	grid-area: review;
+
+	display: grid;
+	align-items: center;
+
+	padding: 100px 40px;
+
+	background: var(--dark-secondary);
+	gap: 100px;
+	grid-template-columns: auto auto;
+}
+
+.reviewText {
+	display: grid;
+	row-gap: 40px;
+
+	max-width: 633px;
+	padding-left: 60px;
+
+	border-left: 2px solid #C1AF99;
+}
+
+.reviewText > span {
+	color: var(--primary);
+
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.reviewText > span:last-child {
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.reviewText > h2 {
+	color: white;
+}
