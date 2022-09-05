@@ -18,7 +18,7 @@ function Home({ main, menu }: HomeProps): JSX.Element {
 
   const moveToFeedback = () => {
     setTimeout(() => {
-      window.scrollTo(0, 4000);
+      window.scrollTo(0, 3900);
     }, 1000);
   };
 
@@ -31,7 +31,7 @@ function Home({ main, menu }: HomeProps): JSX.Element {
       <Htag tag="h1">{data.title}</Htag>
       <span>{data.description}</span>
       <Button apperance="primary" onClick={() => setActive(true)}>Заказать консультацию</Button>
-      <ul className={cn(styles.specificswork)}>
+      <ul key={data.id} className={cn(styles.specificswork)}>
         {data.specificsWork.map((e: string) => (<li key={e}>{e}</li>))}
       </ul>
       <ul className={cn(styles.individualplanwork)}>

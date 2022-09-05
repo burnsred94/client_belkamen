@@ -24,6 +24,9 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
                 <Link href='/catalog/page'>Каталог</Link>
               </li>
               <li>
+                <Link href='/improvement/page'>Благоустройства</Link>
+              </li>
+              <li>
                 <Link href='/about/page'>О нас</Link>
               </li>
               <li>
@@ -32,7 +35,7 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
             </ul>
             <div>
               <TelIcon />
-              <a href="tel:777-77-77">777-77-77</a>
+              <a href="tel:+375445689224">+375(44)568-92-24</a>
             </div>
         </div>  
     );

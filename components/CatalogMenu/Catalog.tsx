@@ -1,29 +1,33 @@
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill, BsBagXFill } from "react-icons/bs";
-import { useEffect, useRef, useState } from "react";
+import { useEffect , useRef, useState } from "react";
 import { GetStaticProps } from "next";
-import { Product, ProductSpace } from "../../interfaces/catalog.interface";
-import { MenuItem } from "../../interfaces/catalog.interface";
+import { MenuItem, Product } from "../../interfaces/catalog.interface";
 import { CatalogProps } from "./Catalog.props";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import cn from "classnames";
 import styles from "./Catalog.module.css";
 import axios from "axios";
+import Link from "next/link";
 
 export const CatalogMenu = ({ type, menu }: CatalogProps & MenuProps): JSX.Element => {
+
+    useEffect(() => setMenuState(1),[]);
+    
     const [menuState, setMenuState] = useState(0);
     const [productsName, setProductName] = useState('singlemonument');
-    const [productState, setProductState] = useState<ProductSpace>();
+    const [productState, setProductState] = useState<Product[]>();
 
-    const products = productState ? productState.products : [];
+    const products = productState;
 
+    
 
     useEffect(() => {
         async function fetchProducts(products: string) {
             try {
-                const { data } = await axios.get<ProductSpace>(
-                    process.env.NEXT_PUBLIC_DOMAIN + `/api/catalog/categories/productCategory/${products}`
+                const { data: product } = await axios.post<Product[]>(
+                    process.env.NEXT_PUBLIC_DOMAIN + `/api/product/find/${products}`
                 );
-                setProductState(data);
+                setProductState(product);
             } catch (e) {
                 console.log(e);
             }
@@ -73,8 +77,7 @@ export const CatalogMenu = ({ type, menu }: CatalogProps & MenuProps): JSX.Eleme
                 })}>
                     <a onClick={() => (
                         setProductName(p.nameCategory), 
-                        setWidth(0), 
-                        setCountDown(type === 'main' ? 1 : 0),
+                        setCountDown(0),
                         setHeight(0)
                         )}>
                         {p.title}
@@ -86,16 +89,15 @@ export const CatalogMenu = ({ type, menu }: CatalogProps & MenuProps): JSX.Eleme
 
     const carousel = useRef<HTMLDivElement>();
     const [height, setHeight] = useState(0);
-    const [width, setWidth] = useState(0);
-    const [countClickDown, setCountDown] = useState(type === 'main' ? 1 : 0);
+    const [countClickDown, setCountDown] = useState(0);
 
-    const productsLengthMovetoDownUp = Math.floor(products?.length / 9);
-    const productsLengthMoveToRightLeft = Math.round(products?.length / 4);
+    const productsLengthMovetoDownUp = type === 'catalog' ? Math.floor(products?.length / 9) : Math.floor(products?.length / 8);
+    
 
     const clickDown = () => {
-        if (productsLengthMovetoDownUp != 0) {
+        if (productsLengthMovetoDownUp !== 0) {
             if (countClickDown !== productsLengthMovetoDownUp) {
-                setHeight(height - 1280);
+                type === 'catalog' ? setHeight(height - 1280) : setHeight(height - 860);
                 setCountDown(countClickDown + 1);
             }
 
@@ -105,25 +107,7 @@ export const CatalogMenu = ({ type, menu }: CatalogProps & MenuProps): JSX.Eleme
     const clickUp = () => {
         if (productsLengthMovetoDownUp != 0) {
             if (countClickDown == productsLengthMovetoDownUp) {
-                setHeight(height + 1280);
-                setCountDown(countClickDown + 1);
-            }
-        }
-    };
-
-    const clickRight = () => {
-        if (productsLengthMoveToRightLeft != 1) {
-            if (countClickDown !== productsLengthMoveToRightLeft) {
-                setWidth(width - 1450);
-                setCountDown(countClickDown + 1);
-            }
-        }
-    };
-
-    const clickLeft = () => {
-        if (productsLengthMoveToRightLeft != 0) {
-            if (width < 0 ) {
-                setWidth(width + 1450);
+            type === 'catalog' ? setHeight(height + 1280) : setHeight(height + 860);
                 setCountDown(countClickDown - 1);
             }
         }
@@ -157,12 +141,19 @@ export const CatalogMenu = ({ type, menu }: CatalogProps & MenuProps): JSX.Eleme
                     [styles.products_inner]: type === 'catalog',
                     [styles.mainProducts_inner]: type === 'main'
                 })}
-                    animate={{ y: height, x: width }}
+                    animate={{ y: height }}
                     transition={{ ease: "easeOut", duration: 2 }}
                 >
                     {products?.map((e: Product) => (
-                        <motion.div className={styles.productItem}>
-                            <img width="300px" height="300px" src={process.env.NEXT_PUBLIC_DOMAIN + '/' + e.image} alt="Product Image" />
+                        <motion.div className={styles.productItem}
+                            whileHover={{ scale: 1.05, transition: { duration: 0.3 }}}
+                        >
+                            <Link className={styles.productLink} href={{
+                                pathname: `/catalog/product/[item]`,
+                                query: {item: `${e.id}`}
+                            }}> 
+                                <motion.img whileHover={{ opacity: 0, transition: { duration: 0.3 } }} width="300px" height="300px" src={process.env.NEXT_PUBLIC_DOMAIN + '/uploads/' + e.image} alt="Product Image" />
+                            </Link>
                             <div>
                                 <span>{e.title}</span>
                                 <span>{e.price + " BYN"}</span>
@@ -176,10 +167,10 @@ export const CatalogMenu = ({ type, menu }: CatalogProps & MenuProps): JSX.Eleme
                 [styles.buttonBlock]: type === "catalog",
                 [styles.buttonMain]: type === 'main' 
             })}>
-                <motion.button onClick={() => type === 'catalog' ? clickUp() : clickLeft()}>
+                <motion.button onClick={() => clickUp()}>
                     <BsFillArrowLeftCircleFill className={styles.buttonIcon} />
                 </motion.button>
-                <motion.button onClick={() => type === 'catalog' ? clickDown() : clickRight()}>
+                <motion.button onClick={() => clickDown()}>
                     <BsFillArrowRightCircleFill className={styles.buttonIcon} />
                 </motion.button>
             </motion.div>

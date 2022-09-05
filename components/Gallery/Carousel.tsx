@@ -11,17 +11,17 @@ export const Carousel = ({ children }: CarouselProps): JSX.Element => {
     const [[ moveClickWidth, countClick ], setMoveClickWidth] = useState([0, 1]);
     const carousel = useRef<HTMLDivElement>();
 
-    const carouselItemCount = Math.round(children['image'].length / 2);
+    const carouselItemCount = Math.round(children['image'].length);
     
     const clicRight = () => {
         if(countClick !== carouselItemCount) {
-            setMoveClickWidth([moveClickWidth - 1485, countClick + 1]);
+            setMoveClickWidth([moveClickWidth - 960, countClick + 1]);
         }
     };
 
     const clickLeft = () => {
-        if(countClick >= carouselItemCount ) {
-            setMoveClickWidth([moveClickWidth + 1485, countClick - 1]);
+        if(countClick != 1 ) {
+            setMoveClickWidth([moveClickWidth + 960, countClick - 1]);
         }
     };
 
@@ -46,7 +46,7 @@ export const Carousel = ({ children }: CarouselProps): JSX.Element => {
                     {children['image'].map((image: string) => {
                         return (
                             <motion.div className={styles.item} key={image}>
-                                <img src={process.env.NEXT_PUBLIC_DOMAIN + '/gallery/' + image.split('/')[2]} alt="ImageGallery" />
+                                <img src={process.env.NEXT_PUBLIC_DOMAIN + '/uploads/gallery/' + image.split('/')[2]} alt="ImageGallery" />
                             </motion.div>
                         );
                     })}

@@ -8,7 +8,7 @@
 }
 
 .item {
-	min-width: 47rem;
+	min-width: 60rem;
 	min-height: 15rem;
 	padding: 40px;
 }
@@ -24,6 +24,8 @@
 
 .inner_carousel {
 	display: flex;
+
+	width: 960px;
 }
 
 .carousel {
