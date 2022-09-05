@@ -1,4 +1,4 @@
-import { createRef, useRef, useState } from "react";
+import { useState } from "react";
 import { withLayout } from "../layout/Layout";
 import { Card, MainPage } from "../interfaces/main.interfaces";
 import { MenuItem } from "../interfaces/catalog.interface";
